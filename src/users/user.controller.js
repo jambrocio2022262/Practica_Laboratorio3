@@ -31,3 +31,35 @@ export const usuariosPost = async (req, res) =>{
         usuario
     });
 }
+
+export const usuariosPut = async (req, res = response) => {
+    try{
+        const { id } = req.params;
+        const {_id, passwordAnterior, email, ...resto} = req.body;
+    
+        const usuario = await User.findById(id);
+        const verificacionPassword = await bcryptjs.compare(passwordAnterior, usuario.password);
+    
+        if(!verificacionPassword){
+            return res.status(401).json({msg: "The above password is incorrect"});
+        }
+    
+        if(resto.password){
+            const salt = bcryptjs.genSaltSync();
+            resto.password = bcryptjs.hashSync(resto.password, salt);
+        }
+    
+        await User.findByIdAndUpdate(id, resto);
+    
+        const updeateUsuario = await User.findById(id);
+    
+        res.status(200).json({
+            msg: 'User successfully updated',
+            usario: updeateUsuario
+        });
+    }catch(e){
+        console.error("Error updating user:",e);
+        res.status(500).json({msg:"Internal server error"});
+    }
+   
+}

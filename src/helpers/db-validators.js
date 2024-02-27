@@ -13,3 +13,10 @@ export const existenteUserName = async (userName = '') => {
         throw new Error(`The user name  ${userName} was registered`);
     }
 }
+
+export const existeUsuarioById = async (id = '') => {
+    const existeUsuario = await User.findById(id);
+    if (!existeUsuario){
+        throw new Error(`El ID: ${correo} No existe`);
+    }
+}

@@ -1,0 +1,61 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "usersCollection",
+    "dateExported": "2024-02-27T23:11:05.053Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "4c584a63-b8f1-4778-a58c-b6bfc3508d2d",
+            "colId": "be88621d-c352-41c7-85e6-745d805d579e",
+            "containerId": "",
+            "name": "user Post",
+            "url": "http://localhost:8080/opinion_manager/v1/users",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-02-27T20:26:42.398Z",
+            "modified": "2024-02-27T23:01:00.932Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Flores Yllecas\",\n  \"userName\": \"OFlores\",\n  \"email\": \"flores@gmail.com\",\n  \"password\": \"654321\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "c08d3c6e-a43a-4d63-aa55-a070c7a9bd70",
+            "colId": "be88621d-c352-41c7-85e6-745d805d579e",
+            "containerId": "",
+            "name": "user get",
+            "url": "http://localhost:8080/opinion_manager/v1/users",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-02-27T21:29:10.357Z",
+            "modified": "2024-02-27T21:35:48.540Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "1e438976-c6d6-412f-b60f-52a351807de1",
+            "colId": "be88621d-c352-41c7-85e6-745d805d579e",
+            "containerId": "",
+            "name": "user put",
+            "url": "http://localhost:8080/opinion_manager/v1/users/65de69ac5d233801e600477a",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-02-27T22:57:53.901Z",
+            "modified": "2024-02-27T23:03:22.055Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"Flores Yllecas\",\n  \"userName\": \"Yllecas\",\n  \"email\": \"flores@gmail.com\",\n  \"passwordAnterior\": \"123456\",\n  \"password\": \"2022262\"\n}",
+                "form": []
+            },
+            "tests": []
+        }
+    ]
+}

@@ -3,12 +3,14 @@ import { check } from "express-validator";
 
 import{
     usuariosPost,
-    usuariosGet
+    usuariosGet,
+    usuariosPut
 } from "./user.controller.js";
 
 import{
     existenteEmail,
     existenteUserName,
+    existeUsuarioById
 } from "../helpers/db-validators.js"
 
 import { validarCampos } from "../middlewares/validar-campos.js";
@@ -27,6 +29,15 @@ router.post(
         check("password", "The password must be longer than 6 characters").isLength({min: 6}),
         validarCampos,
     ], usuariosPost);
+
+
+    router.put(
+        "/:id",
+        [
+          check("id", "No es un ID válido").isMongoId(),
+          check("id").custom(existeUsuarioById),
+          validarCampos,
+        ],usuariosPut);
 
 
 export default router;
