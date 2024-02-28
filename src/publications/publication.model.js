@@ -9,7 +9,7 @@ const PublicationSchema = mongoose.Schema({
         type: String,
         require: [true, "The Category is required"]
     },
-    text:{
+    paragraph:{
         type: String,
         require: [true, "The Text is required"]
     },
@@ -22,7 +22,7 @@ const PublicationSchema = mongoose.Schema({
 PublicationSchema.methods.toJSON = function(){
     const{__v, _id, ...publication} = this.toObject();
     publication.uid = _id;
-    return publicationl
+    return publication
 };
 
 export default mongoose.model('Publication', PublicationSchema);
