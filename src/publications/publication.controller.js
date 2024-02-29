@@ -29,3 +29,17 @@ export const publicationPost = async (req, res) =>{
     });
 }
 
+export const publicationPut = async(req, res = response) =>{
+    const{ id } = req.params;
+    const{_id, ...resto} = req.body;
+
+    await Publication.findByIdAndUpdate(id, resto);
+
+    const publication = await Publication.findOne({_id: id});
+
+    res.status(200).json({
+        msg: 'Updated Publication',
+        publication
+    });
+}
+

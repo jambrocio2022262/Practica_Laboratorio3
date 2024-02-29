@@ -3,8 +3,13 @@ import { check } from "express-validator";
 
 import{
     publicationGet,
-    publicationPost
+    publicationPost,
+    publicationPut
 } from "./publication.controller.js"
+
+import{
+    existePublicationById
+} from "../helpers/db-validators.js"
 
 import { validarCampos } from "../middlewares/validar-campos.js";
 
@@ -21,6 +26,14 @@ router.post(
         check("paragraph", "The Paragraph is required").not().isEmpty(),
         validarCampos,
     ], publicationPost);
+
+router.put(
+    "/:id",
+    [
+        check("id", "Incorrect Id").isMongoId(),
+        check("id").custom(existePublicationById),
+        validarCampos
+    ],publicationPut);
 
 
 export default router;
