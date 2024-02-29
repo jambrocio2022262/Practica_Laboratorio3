@@ -2,6 +2,7 @@ import { Router  } from "express";
 import { check } from "express-validator";
 
 import{
+    publicationDelete,
     publicationGet,
     publicationPost,
     publicationPut
@@ -34,6 +35,14 @@ router.put(
         check("id").custom(existePublicationById),
         validarCampos
     ],publicationPut);
+
+router.delete(
+    "/:id",
+    [
+        check("id", "Incorrect Id").isMongoId(),
+        check("id").custom(existePublicationById),
+        validarCampos
+    ], publicationDelete);
 
 
 export default router;

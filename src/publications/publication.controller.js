@@ -43,3 +43,12 @@ export const publicationPut = async(req, res = response) =>{
     });
 }
 
+export const publicationDelete = async(req, res) =>{
+    const{id} = req.params;
+
+    const publication = await Publication.findByIdAndUpdate(id, {estado: false});
+    
+    res.status(200).json({msg:'Deleted publication', publication});
+}
+
+
