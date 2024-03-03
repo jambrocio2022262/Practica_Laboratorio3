@@ -104,4 +104,4 @@ export const commentDelete = async (req, res) => {
         console.error('Error deleting comment:', error);
         res.status(500).json({ error: 'Error deleting comment' });
     }
-}; 
+};  
