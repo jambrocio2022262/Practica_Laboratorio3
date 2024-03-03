@@ -1,0 +1,90 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "commentsCollection",
+    "dateExported": "2024-03-03T06:44:51.012Z",
+    "version": "1.1",
+    "folders": [],
+    "requests": [
+        {
+            "_id": "dfdf72e3-875f-49c2-beeb-77013b9e200e",
+            "colId": "96b43bcf-f67f-46ea-9433-728fa838bca7",
+            "containerId": "",
+            "name": "comment post",
+            "url": "http://localhost:8080/opinion_manager/v1/comment",
+            "method": "POST",
+            "sortNum": 10000,
+            "created": "2024-03-03T06:25:00.735Z",
+            "modified": "2024-03-03T06:42:58.630Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWRlYTUxZDJiYmZmNjczZmNhNzJjM2YiLCJpYXQiOjE3MDk0NDQ4NjAsImV4cCI6MTcwOTQ0ODQ2MH0.Gnz4PFJZV9YwPNHNsRQFL0_fpxInlbjjUtf-p5jKe9I"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"content\":\"Fan numero dos\",\n  \"idPublicacion\":\"65e417eba1e867850a02a138\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "b06ae1a1-6ab2-4398-8fdc-c7d2b99dba92",
+            "colId": "96b43bcf-f67f-46ea-9433-728fa838bca7",
+            "containerId": "",
+            "name": "comment get",
+            "url": "http://localhost:8080/opinion_manager/v1/comment",
+            "method": "GET",
+            "sortNum": 20000,
+            "created": "2024-03-03T06:40:21.875Z",
+            "modified": "2024-03-03T06:40:27.950Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        },
+        {
+            "_id": "66c2b6c8-471a-4ee7-bf09-ac0977a6b46e",
+            "colId": "96b43bcf-f67f-46ea-9433-728fa838bca7",
+            "containerId": "",
+            "name": "comment put",
+            "url": "http://localhost:8080/opinion_manager/v1/comment/65e41b37620bff4adff6e48b",
+            "method": "PUT",
+            "sortNum": 30000,
+            "created": "2024-03-03T06:41:00.279Z",
+            "modified": "2024-03-03T06:41:54.420Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWRlYTUxZDJiYmZmNjczZmNhNzJjM2YiLCJpYXQiOjE3MDk0NDQ4NjAsImV4cCI6MTcwOTQ0ODQ2MH0.Gnz4PFJZV9YwPNHNsRQFL0_fpxInlbjjUtf-p5jKe9I"
+                }
+            ],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"content\":\"Fan número 1 de las carreras\",\n  \"idPublicacion\":\"65e417eba1e867850a02a138\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "1cec6c4d-8c03-4418-9959-027cb617252a",
+            "colId": "96b43bcf-f67f-46ea-9433-728fa838bca7",
+            "containerId": "",
+            "name": "comment delete",
+            "url": "http://localhost:8080/opinion_manager/v1/comment/65e41bf2620bff4adff6e497",
+            "method": "DELETE",
+            "sortNum": 40000,
+            "created": "2024-03-03T06:42:18.035Z",
+            "modified": "2024-03-03T06:43:44.660Z",
+            "headers": [
+                {
+                    "name": "x-token",
+                    "value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1aWQiOiI2NWRlYTUxZDJiYmZmNjczZmNhNzJjM2YiLCJpYXQiOjE3MDk0NDQ4NjAsImV4cCI6MTcwOTQ0ODQ2MH0.Gnz4PFJZV9YwPNHNsRQFL0_fpxInlbjjUtf-p5jKe9I"
+                }
+            ],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
