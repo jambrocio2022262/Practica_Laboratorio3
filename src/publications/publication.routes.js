@@ -8,11 +8,8 @@ import{
     publicationPut
 } from "./publication.controller.js"
 
-import{
-    existePublicationById
-} from "../helpers/db-validators.js"
-
 import { validarCampos } from "../middlewares/validar-campos.js";
+import { validarJWT } from "../middlewares/validate-jwt.js"
 
 
 const router = Router();
@@ -26,23 +23,24 @@ router.post(
         check("category", "The Category is required").not().isEmpty(),
         check("paragraph", "The Paragraph is required").not().isEmpty(),
         validarCampos,
+        validarJWT
     ], publicationPost);
 
 router.put(
     "/:id",
     [
-        check("id", "Incorrect Id").isMongoId(),
-        check("id").custom(existePublicationById),
-        validarCampos
+       validarJWT,
+       check("title", "The title is obligatory").not().isEmpty(),
+       check("category", "The category is obligatory").not().isEmpty(),
+       check("paragraph", "The principal text is obligatory").not().isEmpty(),
+       validarCampos
     ],publicationPut);
+
 
 router.delete(
     "/:id",
-    [
-        check("id", "Incorrect Id").isMongoId(),
-        check("id").custom(existePublicationById),
-        validarCampos
-    ], publicationDelete);
+         validarJWT, 
+    publicationDelete);
 
 
 export default router;

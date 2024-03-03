@@ -13,16 +13,12 @@ const PublicationSchema = mongoose.Schema({
         type: String,
         require: [true, "The Text is required"]
     },
-    estado:{
-        type: String,
-        default: true
+    usuario: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'User',
+        required: true
     }
 });
 
-PublicationSchema.methods.toJSON = function(){
-    const{__v, _id, ...publication} = this.toObject();
-    publication.uid = _id;
-    return publication
-};
 
 export default mongoose.model('Publication', PublicationSchema);
