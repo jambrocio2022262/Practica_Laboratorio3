@@ -1,10 +1,8 @@
 import Comment from './comment.model.js';
-import User from '../users/user.model.js';
 import Publication from '../publications/publication.model.js';
 
 export const commentPost = async (req, res) => {
-    const user = req.usuario;
-    const { content, idPublicacion } = req.body;
+    const { nombre, email, content, idPublicacion } = req.body;
 
     try {
         const publication = await Publication.findById(idPublicacion);
@@ -14,22 +12,21 @@ export const commentPost = async (req, res) => {
         }
 
         const comment = new Comment({
+            nombre,
+            email,
             content,
-            usuario: user._id,
             publication: idPublicacion
         });
 
         await comment.save();
 
-        const usuario = await User.findById(user._id);
+        publication.comments.push(comment._id);
+        await publication.save();
 
+        
         res.status(201).json({
             msg: 'Comment added correctly',
-            comment: {
-                ...comment.toObject(),
-                tituloPublicacion: publication.title,
-                usuario: usuario.email
-            }
+            comment
         });
         
     } catch (error) {
@@ -40,21 +37,18 @@ export const commentPost = async (req, res) => {
 };
 
 
-export const commentGet = async (req, res) => {
+export const commentGet = async (req , res) => {
     try {
-        const comment = await Comment.find().populate({
-            path: 'usuario', 
-            select: 'email _id' 
-        });
+        const comment = await Comment.find();
 
         res.status(200).json(comment);
     } catch (error) {
-        console.error('Error to get post:', error);
-        res.status(500).json({ error: 'Error to get post' });
+        console.error('Error al obtener los comentarios', error)
+        res.status(500).json({error: 'Error al obtener los comentatios'})
     }
 };
 
-export const commentPut = async (req, res) => {
+/*export const commentPut = async (req, res) => {
     const user = req.usuario;
     const commentId = req.params.id;
     const { content } = req.body;
@@ -104,4 +98,4 @@ export const commentDelete = async (req, res) => {
         console.error('Error deleting comment:', error);
         res.status(500).json({ error: 'Error deleting comment' });
     }
-}; 
+}; */

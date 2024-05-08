@@ -4,11 +4,10 @@ import { check } from "express-validator";
 import {
     commentPost,
     commentGet,
-    commentPut,
-    commentDelete
+    /*commentPut,
+    commentDelete*/
 } from "./comment.controller.js";
 
-import { validarJWT } from "../middlewares/validate-jwt.js"
 import { validarCampos } from "../middlewares/validar-campos.js";
 
 const router = Router();
@@ -16,17 +15,18 @@ const router = Router();
 router.post(
     "/",
     [
+        check("nombre", "The content is obligatory").not().isEmpty(), 
+        check("email", "The content is obligatory").not().isEmpty(), 
         check("content", "The content is obligatory").not().isEmpty(), 
         check("idPublicacion", "The publication ID is obligatory").not().isEmpty(),
-        validarCampos,
-        validarJWT
+        validarCampos
     ],
     commentPost
 );
 
 router.get("/", commentGet);
 
-router.put(
+/*router.put(
     "/:id",
     [
         validarJWT,
@@ -40,6 +40,6 @@ router.delete(
     "/:id",
     validarJWT, 
     commentDelete
-);
+);*/
 
 export default router;
