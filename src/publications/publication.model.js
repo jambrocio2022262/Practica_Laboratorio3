@@ -13,11 +13,11 @@ const PublicationSchema = mongoose.Schema({
         type: String,
         require: [true, "The Text is required"]
     },
-    comments:[{
+    /*comments:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment'
 
-    }],
+    }],*/
     imagenUrl:{
         type: String,
         require: true
