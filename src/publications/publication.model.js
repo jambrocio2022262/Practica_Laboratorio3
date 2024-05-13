@@ -16,7 +16,6 @@ const PublicationSchema = mongoose.Schema({
     /*comments:[{
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Comment'
-
     }],*/
     imagenUrl:{
         type: String,

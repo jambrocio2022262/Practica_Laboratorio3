@@ -2,28 +2,17 @@ import Comment from './comment.model.js';
 import Publication from '../publications/publication.model.js';
 
 export const commentPost = async (req, res) => {
-    const { nombre, email, content, idPublicacion } = req.body;
+    const { nombre, email, content } = req.body;
 
     try {
-        const publication = await Publication.findById(idPublicacion);
-
-        if (!publication) {
-            return res.status(404).json({ msg: 'Publication not found' });
-        }
-
         const comment = new Comment({
             nombre,
             email,
-            content,
-            publication: idPublicacion
+            content
         });
 
         await comment.save();
-
-        publication.comments.push(comment._id);
-        await publication.save();
-
-        
+    
         res.status(201).json({
             msg: 'Comment added correctly',
             comment

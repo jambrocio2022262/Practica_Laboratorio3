@@ -13,11 +13,11 @@ const CommentSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    publication: {
+    /*publication: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'Publication',
         required: true
-    },
+    }*/
     estado:{
         type: Boolean,
         default: true

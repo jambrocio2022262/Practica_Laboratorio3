@@ -18,7 +18,6 @@ router.post(
         check("nombre", "The content is obligatory").not().isEmpty(), 
         check("email", "The content is obligatory").not().isEmpty(), 
         check("content", "The content is obligatory").not().isEmpty(), 
-        check("idPublicacion", "The publication ID is obligatory").not().isEmpty(),
         validarCampos
     ],
     commentPost
